@@ -40,12 +40,6 @@ export default function FondoCircuitoVerde() {
 
     const skCanvas = superficie.getCanvas();
 
-    // Pintura para las líneas base (verde tenue tipo circuito)
-    const pinturaBase = new canvasKit.Paint();
-    pinturaBase.setStyle(canvasKit.PaintStyle.Stroke);
-    pinturaBase.setStrokeWidth(.5);
-    pinturaBase.setColor(canvasKit.Color(50, 200, 50, 60));
-
     // Función para dibujar un destello parcial en una línea con múltiples tramos
     function dibujarDestello(linea: Linea, ds: Destello) {
       const { puntos } = linea;
@@ -102,7 +96,7 @@ export default function FondoCircuitoVerde() {
       // Crear la pintura para el destello (shader degradado)
       const pinturaDestello = new canvasKit.Paint();
       pinturaDestello.setStyle(canvasKit.PaintStyle.Stroke);
-      pinturaDestello.setStrokeWidth(1.5);
+      pinturaDestello.setStrokeWidth(.5);
       pinturaDestello.setAntiAlias(true);
 
       // Crear el shader degradado
@@ -126,15 +120,15 @@ export default function FondoCircuitoVerde() {
       pinturaDestello.setShader(shader);
 
       // Blur
-      const blurFilter = canvasKit.ImageFilter.MakeBlur(1, 1, canvasKit.TileMode.Clamp, null);
+      const blurFilter = canvasKit.ImageFilter.MakeBlur(.5, .5, canvasKit.TileMode.Clamp, null);
       pinturaDestello.setImageFilter(blurFilter);
 
       // Dibujar el path parcial
       skCanvas.drawPath(path, pinturaDestello);
 
       // Limpieza
-      // if (blurFilter) blurFilter.delete();
-      if (shader) shader.delete();
+      shader.delete();
+      blurFilter.delete();
       pinturaDestello.delete();
       path.delete();
     }
@@ -168,7 +162,7 @@ export default function FondoCircuitoVerde() {
       peticionRef.current = requestAnimationFrame(animar);
     
       // Limpiar el canvas con un color de fondo
-      skCanvas.clear(canvasKit.Color(10, 10, 10, 1));
+      skCanvas.clear(canvasKit.Color(5, 5, 5, 1));
     
       // Guardar estado actual de la matriz
       skCanvas.save();
@@ -183,7 +177,8 @@ export default function FondoCircuitoVerde() {
       skCanvas.scale(escalaX, escalaY);
     
       // Dibujar líneas base y destellos (con tus coordenadas de 0..800 y 0..600)
-      actualizarYDibujarDestellos();
+      // En desarrollo quito para no consumir recursos
+      // actualizarYDibujarDestellos();
     
       // Restaurar la matriz
       skCanvas.restore();
