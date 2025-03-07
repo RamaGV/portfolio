@@ -9,9 +9,14 @@ import ProyectItem from '../components/proyectSeccion/ProyectItem';
 function ProyectsSeccion() {
   return (
     <>
-      <section className="max-w-5xl w-full bg-[#171717] p-8 rounded-lg shadow-inner shadow-[#232323]">
+      <section className="
+          max-w-5xl w-full p-8 rounded-lg 
+          bg-[#171717] 
+          shadow-inner shadow-[#232323]
+        "
+      >
         {/* Encabezado */}
-        <h1 className="text-2xl font-semibold text-gray-200 mb-2 flex items-center gap-2">
+        <h1 className="mb-2 font-semibold text-3xl text-gray-200">
           Proyectos
         </h1>
 
@@ -20,18 +25,21 @@ function ProyectsSeccion() {
           <ProyectItem
             type="hydro"
             name="Hydro Edge"
-            description="Project description or summary about what Kiwilabs does."
+            description="HydroEdge es un sistema automatizado de hidroponia que integra aplicación móvil, sensores IoT y microcontrolador. Permite monitorear y controlar parámetros de crecimiento, ajustando el ambiente y la nutrición a través de lógica de control."
             imageUrl="../src/assets/proyects/proj_1.webp"
             githubLink="https://github.com/tu-repo"
             hostLink="https://kiwilabs.com"
+            playStoreLink="https://kiwilabs.com"
           />
 
           <ProyectItem
             type="ledfit"
             name="Led Fit"
-            description="An application to teach and manage English classes."
+            description="Ledfit combina una aplicación móvil de entrenamiento con un tablero LED personalizado, diseño y cortado mediante CNC laser. El proyecto integra datos de ejercicios y métricas en tiempo real, motivando al usuario."
             imageUrl="../src/assets/proyects/proj_2.webp"
             githubLink="https://github.com/tu-repo"
+            hostLink="https://kiwilabs.com"
+            playStoreLink="https://kiwilabs.com"
           />
 
           <ProyectItem
@@ -39,8 +47,8 @@ function ProyectsSeccion() {
             name="Peek by Light"
             description="Project description or summary about what Kiwilabs does."
             imageUrl="../src/assets/proyects/proj_3.webp"
-            githubLink="https://github.com/tu-repo"
-            hostLink="https://kiwilabs.com"
+            githubLink="https://github.com/RamaGV/PIC2_PTL_C"
+            documentLink="https://drive.google.com/file/d/12KYl03yniOt4B5wKHoVWHq8WsmDLtMkB/view?usp=sharing"
           />
 
           <ProyectItem
@@ -49,6 +57,7 @@ function ProyectsSeccion() {
             description="Another project or summary of your work here."
             imageUrl="../src/assets/proyects/proj_4.webp"
             githubLink="https://github.com/tu-repo"
+            hostLink="https://kiwilabs.com"
           />
         </div>
       </section>

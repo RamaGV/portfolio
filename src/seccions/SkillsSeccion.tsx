@@ -11,11 +11,14 @@ import SkillCategory from '../components/skillsSeccion/SkillCategory';
 function SkillsSeccion() {
   return (
     <>
-      <section className="max-w-5xl w-full bg-[#171717] p-8 rounded-lg shadow-inner shadow-[#232323]">
+      <section className="
+          max-w-5xl w-full p-8 rounded-lg 
+          bg-[#171717] 
+          shadow-inner shadow-[#232323]
+        "
+      >
         {/* Encabezado */}
-        <h1 className="text-2xl font-semibold text-gray-200 mb-2 flex items-center gap-2">
-          Skills
-        </h1>
+        <h1 className="mb-2 font-semibold text-3xl text-gray-200"> Habilidades </h1>
 
         {/* Contenedor en cuadrícula para las distintas categorías de habilidades */}
         <div className="grid grid-cols-2 gap-4 rounded-xl p-4">

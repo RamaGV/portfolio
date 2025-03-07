@@ -5,12 +5,13 @@
 // o la versión en producción, si están disponibles.
 // -----------------------------------------------------------------------------
 
-import { LuGithub, LuScreenShare } from "react-icons/lu";
-
 import { MdOutlineEnergySavingsLeaf } from "react-icons/md";
+import { LuGithub, LuScreenShare } from "react-icons/lu";
+import { HiDocumentDownload } from "react-icons/hi";
 import { FaPersonRunning } from "react-icons/fa6";
-import { PiShareNetwork } from "react-icons/pi";
 import { GiMechanicalArm } from "react-icons/gi";
+import { PiShareNetwork } from "react-icons/pi";
+import { SiGoogleplay } from "react-icons/si";
 
 interface ProyectItemProps {
   type: string;
@@ -19,6 +20,8 @@ interface ProyectItemProps {
   imageUrl: string; // URL de la imagen que se mostrará como portada o screenshot del proyecto.
   githubLink?: string; // (Opcional) Link al repositorio en GitHub.
   hostLink?: string; // (Opcional) Link a la versión en producción (hosting) del proyecto.
+  playStoreLink?: string; // (Opcional) Link a la versión en producción (hosting) del proyecto.
+  documentLink?: string;
 }
 
 /**
@@ -34,6 +37,8 @@ export default function ProyectItem({
   imageUrl,
   githubLink,
   hostLink,
+  playStoreLink,
+  documentLink,
 }: ProyectItemProps) {
   const iconMap: { [key: string]: any } = {
     hydro: <MdOutlineEnergySavingsLeaf className="w-6 h-6 shadow-lg shadow-[#121212]" />,
@@ -49,6 +54,7 @@ export default function ProyectItem({
       <div
         className="
           flex flex-col p-4 rounded-xl gap-4
+          justify-between
           bg-[#171717] border border-[#232323]
           hover:bg-[#181818]
           transform transition-all 
@@ -58,7 +64,7 @@ export default function ProyectItem({
         "
       >
         {/* Encabezado con ícono y título */}
-        <div className="flex items-center mb-1 gap-3 text-gray-200">
+        <div className="flex items-center mb-1 gap-3 text-gray-300">
           {icon}
           <h2 className="text-xl font-semibold">{name}</h2>
         </div>
@@ -80,6 +86,12 @@ export default function ProyectItem({
           {hostLink && (
             <ChipLink link={hostLink} type="host" />
           )}
+          {playStoreLink && (
+            <ChipLink link={playStoreLink} type="playstore" />
+          )}
+          {documentLink && (
+            <ChipLink link={documentLink} type="document" />
+          )}
         </div>
       </div>
     </>
@@ -90,7 +102,7 @@ export default function ProyectItem({
  * Componente auxiliar para renderizar un botón/enlace que dirige a
  * GitHub o al hosting en producción, según el tipo especificado.
  */
-function ChipLink({ link, type }: { link: string; type: 'github' | 'host' }) {
+function ChipLink({ link, type }: { link: string; type: 'github' | 'host' | 'playstore' | 'document'}) {
 
   return (
     <>
@@ -110,6 +122,8 @@ function ChipLink({ link, type }: { link: string; type: 'github' | 'host' }) {
       >
         {type === 'github' && <LuGithub className="w-4 h-4" />}
         {type === 'host' && <LuScreenShare className="w-4 h-4" />}
+        {type === 'playstore' && <SiGoogleplay className="w-4 h-4" />}
+        {type === 'document' && <HiDocumentDownload className="w-4 h-4"/> }
       </a>
     </>
   );

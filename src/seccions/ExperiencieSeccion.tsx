@@ -1,13 +1,22 @@
 // src/seccions/ExperiencieSeccion.tsx
 
-function ExperiencieSeccino() {
+export default function ExperiencieSeccino() {
   return (
     <>
-      <section className="max-w-5xl w-full bg-[#171717] p-4 rounded-lg shadow-inner shadow-[#232323]">
-        <h1 className="text-2xl sm:text-3xl font-semibold mb-4">Experiencia</h1>
+      <section className="
+          max-w-5xl w-full p-8 rounded-lg 
+          bg-[#171717] 
+          shadow-inner shadow-[#232323]
+        "
+      >
+        {/* Encabezado */}
+        <h1 className="mb-2 font-semibold text-3xl text-gray-200">Experiencia</h1>
+
+        {/* Contenido */}
+        <div>
+          
+        </div>
       </section>
     </>
   )
 }
-
-export default ExperiencieSeccino

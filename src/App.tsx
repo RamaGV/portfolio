@@ -21,12 +21,12 @@ function App() {
       <div className="relative flex flex-col gap-12 items-center justify-around h-full z-10 py-12">
 
         <HeroSeccion />
+
+        <ExperiencieSeccino />
         
         <ProyectsSeccion />
 
         <SkillsSeccion />
-
-        <ExperiencieSeccino />
 
         <DevSeccion />
 
