@@ -15,7 +15,7 @@ export type LanguageToggleProps = {
  * @description Componente para cambiar entre idiomas con un diseño minimalista
  * y animaciones avanzadas
  */
-const LanguageToggle = ({ activeLanguage, onToggle }: LanguageToggleProps) => {
+export default function LanguageToggle({ activeLanguage, onToggle }: LanguageToggleProps) {
   // Estado para controlar el hover
   const [isHovered, setIsHovered] = useState(false);
   // Estado para controlar la animación de transición
@@ -48,38 +48,54 @@ const LanguageToggle = ({ activeLanguage, onToggle }: LanguageToggleProps) => {
   // Determinar el idioma alternativo (el que no está activo)
   const alternativeLanguage = activeLanguage === 'es' ? 'en' : 'es';
   
-  // Colores según el idioma
-  const getBackgroundColor = (lang: 'es' | 'en') => {
-    return lang === 'es' ? 'bg-yellow-400' : 'bg-blue-900';
-  };
-  
-  // Color del texto según el idioma y el estado de hover
-  const getTextColor = (lang: 'es' | 'en', hovered: boolean) => {
-    if (hovered) {
-      // En hover, el texto es oscuro para contrastar con el fondo de color
-      return lang === 'es' ? 'text-gray-900' : 'text-gray-200';
-    } else {
-      // Sin hover, el texto es del color correspondiente al idioma
-      return lang === 'es' ? 'text-yellow-400' : 'text-blue-400';
+  // Estilos y colores según el idioma
+  const languageStyles = {
+    es: {
+      bg: 'bg-yellow-600',
+      hoverBg: 'bg-yellow-500',
+      text: 'text-yellow-600',
+      hoverText: 'text-gray-900',
+    },
+    en: {
+      bg: 'bg-blue-900',
+      hoverBg: 'bg-blue-800',
+      text: 'text-blue-400',
+      hoverText: 'text-gray-200',
     }
   };
-
+  
+  // Clases para el contenedor principal
+  const containerClasses = `
+    relative flex items-center justify-center 
+    w-12 h-10 
+    bg-[#1a1a1a]
+    rounded-xl overflow-hidden
+    shadow-lg shadow-[#151515]
+  `;
+  
+  // Clases para el botón
+  const buttonClasses = `
+    relative w-full h-full 
+    flex items-center justify-center 
+    transition-all duration-300 ease-in-out
+  `;
+  
+  // Obtener los estilos del idioma activo y alternativo
+  const activeStyle = languageStyles[activeLanguage];
+  const alternativeStyle = languageStyles[alternativeLanguage];
+  
+  // Determinar el color del texto según el estado
+  const textColorClass = isHovered 
+    ? alternativeStyle.hoverText
+    : activeStyle.text;
+  
   return (
-    <div className="
-      relative flex items-center justify-center 
-      w-12 h-10 
-      bg-[#1a1a1a]
-      rounded-xl overflow-hidden
-    ">
+    <div className={containerClasses}>
       <button
         onClick={toggleLanguage}
         onMouseEnter={() => !isTransitioning && setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="
-          relative w-full h-full 
-          flex items-center justify-center 
-          transition-all duration-300 ease-in-out
-        "
+        className={buttonClasses}
         aria-label={`Cambiar a ${activeLanguage === 'es' ? 'inglés' : 'español'}`}
         disabled={isTransitioning}
       >
@@ -88,7 +104,7 @@ const LanguageToggle = ({ activeLanguage, onToggle }: LanguageToggleProps) => {
           {isHovered && (
             <motion.div
               key="hover-background"
-              className={`absolute inset-0 ${getBackgroundColor(alternativeLanguage)}`}
+              className={`absolute inset-0 ${alternativeStyle.bg}`}
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0 }}
@@ -100,7 +116,7 @@ const LanguageToggle = ({ activeLanguage, onToggle }: LanguageToggleProps) => {
           {isTransitioning && (
             <motion.div
               key="transition-background"
-              className={`absolute inset-0 ${getBackgroundColor(alternativeLanguage)}`}
+              className={`absolute inset-0 ${alternativeStyle.bg}`}
               initial={{ opacity: 1, scale: 1 }}
               animate={{ opacity: 0, scale: 1.2 }}
               transition={{ duration: 0.3}}
@@ -110,11 +126,7 @@ const LanguageToggle = ({ activeLanguage, onToggle }: LanguageToggleProps) => {
 
         {/* Texto del idioma actual */}
         <motion.span 
-          className={`text-sm font-medium z-10 ${
-            isHovered 
-              ? getTextColor(alternativeLanguage, true) 
-              : getTextColor(activeLanguage, false)
-          }`}
+          className={`text-sm font-medium z-10 ${textColorClass}`}
           initial={{ opacity: 0, y: 5 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
@@ -125,10 +137,10 @@ const LanguageToggle = ({ activeLanguage, onToggle }: LanguageToggleProps) => {
         {/* Línea inferior */}
         {!isHovered && (
           <motion.div
-            className={`absolute bottom-0 left-0 right-0 ${getBackgroundColor(activeLanguage)}`}
-            initial={{ scaleX: 0, scaleY: 0 }}
-            animate={{ scaleX: 1, scaleY: 1 }}
-            exit={{ scaleX: 0, scaleY: 0 }}
+            className={`absolute bottom-0 left-0 right-0 h-1 ${activeStyle.bg}`}
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            exit={{ scaleX: 0 }}
             transition={{ duration: 0.3 }}
           />
         )}
@@ -136,5 +148,3 @@ const LanguageToggle = ({ activeLanguage, onToggle }: LanguageToggleProps) => {
     </div>
   );
 };
-
-export default LanguageToggle;

@@ -1,4 +1,5 @@
 // src/components/ToggleOption.tsx
+
 import { ReactNode } from 'react';
 
 /**
@@ -17,24 +18,42 @@ export type ToggleOptionProps = {
  * @description Componente para opciones dentro de un toggle
  */
 export default function ToggleOption({ label, isActive, onClick, ariaLabel, icon }: ToggleOptionProps) {
+  // Base classes for all states
+  const baseClasses = `
+    flex items-center justify-center 
+    rounded-xl 
+    transition-all duration-300
+    ${label.length > 2 ? 'w-10' : 'w-8'} h-8
+  `;
+  
+  // Classes for active state
+  const activeClasses = `
+    bg-[#171717] 
+    text-yellow-600 
+    font-medium 
+    hover:text-yellow-400
+    shadow-inner shadow-[#101010]
+  `;
+  
+  // Classes for inactive state
+  const inactiveClasses = `
+    bg-transparent 
+    text-gray-400 
+    hover:text-yellow-400
+    hover:bg-[#202020]
+  `;
+  
   return (
     <button
       onClick={onClick}
-      className={`
-        flex items-center justify-center rounded-full transition-all duration-300
-        ${label.length > 2 ? 'w-12' : 'w-10'} h-8
-      ${isActive 
-        ? 'bg-[#232323] text-blue-400 font-medium' 
-        : 'bg-transparent text-gray-400'
-      }
-    `}
-    aria-label={ariaLabel}
-  >
-    {icon ? (
-      <span className="flex items-center justify-center">{icon}</span>
-    ) : (
-      <span className="text-xs font-medium">{label}</span>
-    )}
-  </button>
+      className={`${baseClasses} ${isActive ? activeClasses : inactiveClasses}`}
+      aria-label={ariaLabel}
+    >
+      {icon ? (
+        <span className="flex items-center justify-center">{icon}</span>
+      ) : (
+        <span className="text-xs font-medium">{label}</span>
+      )}
+    </button>
   );
 }

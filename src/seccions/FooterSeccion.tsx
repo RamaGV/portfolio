@@ -94,15 +94,13 @@ export default function FooterSeccion() {
           />
           
           {/* GitHub - Tamaño destacado */}
-          <a 
-            href={socialLinks.find(link => link.id === 'github')?.href} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="flex items-center justify-center w-20 h-10 rounded-xl bg-[#1a1a1a] text-gray-300 hover:text-purple-400 transition-colors duration-300 border border-[#232323]"
-            aria-label="Ver código fuente en GitHub"
-          >
-            <FaGithub size={24} />
-          </a>
+          <IconButton
+            icon={<FaGithub size={20} />}
+            href={socialLinks.find(link => link.id === 'github')?.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 text-gray-300 hover:text-purple-500 shadow-lg shadow-[#151515]"
+          />
         </div>
       </div>
     </footer>

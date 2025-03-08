@@ -19,7 +19,7 @@ export type IconButtonProps = {
  * @component IconButton
  * @description Componente reutilizable para botones con íconos
  */
-const IconButton = ({
+export default function IconButton ({
   icon,
   onClick,
   href,
@@ -28,7 +28,7 @@ const IconButton = ({
   rel,
   className = '',
   isActive = false
-}: IconButtonProps) => {
+}: IconButtonProps) {
   const baseClasses = `
     flex items-center justify-center w-10 h-10 rounded-xl 
     bg-[#1a1a1a] text-gray-400 transition-colors duration-300 
@@ -58,5 +58,3 @@ const IconButton = ({
     </button>
   );
 };
-
-export default IconButton;
