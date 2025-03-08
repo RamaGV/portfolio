@@ -4,7 +4,7 @@ import { CKContext } from '../../context/CanvasKitContext';
 import { generarLinea, Linea, calcularDistancia } from './utils';
 
  // Estructura de un destello
-interface Destello {
+type Destello = {
   indiceLinea: number;   // Índice de la línea en el array
   progreso: number;      // Avance (0 a 1) a lo largo de la ruta total
   velocidad: number;     // Velocidad de avance

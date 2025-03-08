@@ -1,10 +1,9 @@
-
-export interface Punto {
+export type Punto = {
   x: number;
   y: number;
 }
 
-export interface Linea {
+export type Linea = {
   puntos: Punto[];
 }
 
@@ -113,4 +112,3 @@ export function calcularDistancia(ax: number, ay: number, bx: number, by: number
   const dy = by - ay;
   return Math.sqrt(dx*dx + dy*dy);
 }
-

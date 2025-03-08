@@ -1,57 +1,85 @@
 // src/seccions/HeroSeccion.tsx
 
 import { HiOutlineLocationMarker } from 'react-icons/hi';
+import ButtonHire from '../components/ButtonHire';
+import IconButton from '../components/IconButton';
+import { socialLinks } from '../data';
 
-import ButtonHire from '../components/heroSeccion/ButtonHire';
-import ButtonLink from '../components/heroSeccion/ButtonLink';
+/**
+ * @component HeroSeccion
+ * @description Sección principal del portfolio que muestra la presentación personal
+ */
+export default function HeroSeccion() {
 
-function HeroSeccion() {
   return (
-    <>
-      <section className="flex flex-row items-center justify-around max-w-5xl w-full bg-[#171717] p-8 rounded-lg shadow-inner shadow-[#232323]">
-        {/* Imagen de perfil */}
-        <div className='w-1/3'>
+    <section 
+      id="home"
+      className="
+        flex flex-col items-center p-8 justify-between
+        max-w-5xl w-full bg-[#171717] rounded-lg
+        shadow-inner shadow-[#232323]
+      "
+    >
+      {/* Contenedor principal con espaciado adecuado */}
+      <div className="w-full flex flex-row items-center gap-8">
+        {/* Columna izquierda: Imagen de perfil */}
+        <div className="w-1/3 flex justify-center p-2">
           <img
-            className="w-52 h-52 rounded-3xl object-cover"
+            className="
+              w-full h-full rounded-3xl object-cover 
+              shadow-lg shadow-black/30
+            "
             src="../src/assets/perfil.webp"
-            alt="FelipeGiraldoAvatar"
+            alt="Ramiro Vazquez"
+            loading="eager"
           />
         </div>
 
-        {/* Contenido de la presentación */}
-        <div className="flex flex-col w-full h-full gap-2 items-start justify-around text-left">
-          {/* Botones: [Hire me] & [Email, Linkedin, CV] */}
-          <div className="flex flex-row items-center justify-between w-full mb-2">
+        {/* Columna derecha: Información personal */}
+        <div className="w-2/3 flex flex-col gap-4 items-start justify-between">
+          {/* Fila superior: Botón de disponibilidad y enlaces sociales */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-4 sm:gap-0">
             <ButtonHire />
-            <div className='flex flex-row gap-2'>
-              <ButtonLink icon="correo" link="mailto:tu_correo@ejemplo.com" />
-              <ButtonLink icon="linkedin" link="https://www.linkedin.com/in/tu-perfil/" />
-              <ButtonLink icon="cv" link="/cv.pdf" />
+            <div className="flex items-center gap-2">
+              {socialLinks.slice().reverse().map((link, index) => (
+                <IconButton
+                  key={`hero-social-${index}`}
+                  icon={link.iconSmall}
+                  href={link.href}
+                  download={link.download}
+                  target={link.target}
+                  rel={link.rel}
+                  className={link.hoverClass}
+                />
+              ))}
             </div>
           </div>
 
-          {/* Nombre y descripción */}
-          <h1 className="text-3xl font-bold"> Ramiro Vazquez </h1>
-          <div className="flex flex-col items-start justify-between gap-2 text-gray-400 text-sm">
-            <span>
+          {/* Nombre */}
+          <div className="mt-2">
+            <h1 className="text-4xl font-bold text-white">
+              Ramiro Vazquez
+            </h1>
+          </div>
+
+          {/* Descripción personal */}
+          <div className="flex flex-col gap-3 text-gray-300 text-sm leading-relaxed">
+            <p>
               Soy estudiante de ingeniería en mecatrónica con sólida formación
-              en sistemas y experiencia en soluciones tecnológicas. 
-            </span>
-            <span>
+              en sistemas y experiencia en soluciones tecnológicas.
+            </p>
+            <p>
               He trabajado con microcontroladores, desarrollo web y aplicaciones móviles,
               sistemas embebidos, automatización con lógica ladder y GRAFCET.
-            </span>
+            </p>
           </div>
 
-          {/* Ubicación (ícono + texto) */}
-          <div className="flex items-center gap-1 text-gray-400 text-sm">
-            <HiOutlineLocationMarker className="w-5 h-5" />
-            <span className=''>Uruguay</span>
+          <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#1a1a1a] text-gray-400 text-sm border border-[#232323]">
+            <HiOutlineLocationMarker className="w-4 h-4 text-gray-300" />
+            <span>Uruguay</span>
           </div>
         </div>
-      </section>
-    </>
-  )
+      </div>
+    </section>
+  );
 }
-
-export default HeroSeccion

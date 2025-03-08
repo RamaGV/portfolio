@@ -3,13 +3,13 @@
 import { createContext, useEffect, useState, ReactNode } from 'react';
 import CanvasKitInit from 'canvaskit-wasm';
 
-interface CanvasKitContextProps {
+type CanvasKitContextProps = {
   canvasKit: any;
 }
 
 export const CKContext = createContext<CanvasKitContextProps | null>(null);
 
-interface Props {
+type Props = {
   children: ReactNode;
 }
 
