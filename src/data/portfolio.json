@@ -1,0 +1,212 @@
+{
+  "personalInfo": {
+    "name": "Ramiro Vazquez",
+    "title": "Desarrollador Full Stack",
+    "subtitle": "Estudiante de ingeniería en mecatrónica, especializado en el desarrollo de aplicaciones web y móviles con más de 3 años de experiencia.",
+    "location": "Uruguay",
+    "email": "ramagv23@gmail.com",
+    "about": "Soy un apasionado desarrollador web con experiencia en el desarrollo de aplicaciones escalables y de alto rendimiento. Me especializo en React, Node.js y bases de datos SQL/NoSQL. Disfruto resolviendo problemas complejos y aprendiendo nuevas tecnologías.",
+    "social": {
+      "github": "https://github.com/RamaGV"
+    }
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "E-commerce Platform",
+      "description": "Una plataforma de comercio electrónico construida con React, Node.js y MongoDB.",
+      "longDescription": "Desarrollé una solución completa de comercio electrónico con carrito de compras, pasarela de pagos, panel de administración y gestión de inventario. Implementé autenticación de usuarios, autorización basada en roles y características avanzadas como búsqueda de productos, filtros y sistema de reseñas.",
+      "technologies": ["React", "Node.js", "Express", "MongoDB", "Redux", "JWT", "Stripe"],
+      "image": "/projects/ecommerce.jpg",
+      "github": "https://github.com/ramirovazquez/ecommerce-platform",
+      "demo": "https://ecommerce-demo.ramirovazquez.com",
+      "features": [
+        "Carrito de compras con persistencia",
+        "Pasarela de pagos con Stripe",
+        "Panel de administración para gestión de productos",
+        "Sistema de autenticación y autorización",
+        "Búsqueda avanzada y filtrado de productos"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Task Management App",
+      "description": "Una aplicación de gestión de tareas con funcionalidades colaborativas.",
+      "longDescription": "Diseñé y desarrollé una aplicación de gestión de tareas que permite a los usuarios crear, asignar y seguir el progreso de tareas en proyectos colaborativos. Incluye notificaciones en tiempo real, tableros Kanban y generación de informes.",
+      "technologies": ["React", "Firebase", "Tailwind CSS", "Redux", "React DnD"],
+      "image": "/projects/taskmanager.jpg",
+      "github": "https://github.com/ramirovazquez/task-manager",
+      "demo": "https://tasks.ramirovazquez.com",
+      "features": [
+        "Tableros Kanban para gestión visual de tareas",
+        "Colaboración en tiempo real",
+        "Sistema de notificaciones",
+        "Asignación de tareas y fechas límite",
+        "Generación de informes de productividad"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Portfolio Personal",
+      "description": "Mi portfolio personal con React y Tailwind CSS.",
+      "technologies": ["React", "Tailwind CSS", "Framer Motion", "TypeScript"],
+      "image": "/projects/portfolio.jpg",
+      "github": "https://github.com/ramirovazquez/portfolio",
+      "demo": "https://ramirovazquez.com"
+    },
+    {
+      "id": 4,
+      "title": "Weather App",
+      "description": "Aplicación de pronóstico del tiempo con datos en tiempo real.",
+      "technologies": ["JavaScript", "OpenWeather API", "HTML", "CSS"],
+      "image": "/projects/weather.jpg",
+      "github": "https://github.com/ramirovazquez/weather-app",
+      "demo": "https://weather.ramirovazquez.com"
+    }
+  ],
+  "experiences": [
+    {
+      "id": 1,
+      "company": "TechSolutions Inc.",
+      "position": "Full Stack Developer",
+      "period": "2021 - Presente",
+      "description": "Desarrollo de aplicaciones web y móviles para clientes en diversos sectores, utilizando React, Node.js y bases de datos SQL/NoSQL.",
+      "achievements": [
+        "Reduje el tiempo de carga de una aplicación crítica en un 40% mediante la implementación de técnicas de optimización",
+        "Lideré un equipo de 3 desarrolladores en la migración de una aplicación legada a React y Node.js",
+        "Implementé un sistema de CI/CD que redujo el tiempo de despliegue en un 75%"
+      ],
+      "technologies": ["React", "Node.js", "Express", "MongoDB", "MySQL", "Docker", "AWS"]
+    },
+    {
+      "id": 2,
+      "company": "Digital Innovators",
+      "position": "Frontend Developer",
+      "period": "2019 - 2021",
+      "description": "Desarrollo de interfaces de usuario para aplicaciones web utilizando React, Redux y Tailwind CSS.",
+      "achievements": [
+        "Desarrollé componentes reutilizables que redujeron el tiempo de desarrollo en un 30%",
+        "Colaboré en la implementación de un design system que mejoró la consistencia visual",
+        "Optimicé el rendimiento de la aplicación principal, mejorando el puntaje de Lighthouse de 65 a 92"
+      ],
+      "technologies": ["React", "Redux", "Tailwind CSS", "JavaScript", "TypeScript", "Jest"]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "institution": "Universidad Nacional de Uruguay",
+      "degree": "Ingeniería de Sistemas",
+      "period": "2015 - 2019",
+      "description": "Estudios en desarrollo de software, algoritmos, estructuras de datos, bases de datos, redes y sistemas operativos.",
+      "achievements": [
+        "Proyecto final: Desarrollo de una plataforma de aprendizaje en línea",
+        "Promedio académico: 9.2/10",
+        "Beca por excelencia académica"
+      ]
+    },
+    {
+      "id": 2,
+      "institution": "Platzi",
+      "degree": "Certificación en Desarrollo Web Full Stack",
+      "period": "2020",
+      "description": "Formación intensiva en tecnologías web modernas, incluyendo React, Node.js, Express y MongoDB.",
+      "achievements": [
+        "Proyecto destacado: Sistema de gestión de inventario"
+      ]
+    }
+  ],
+  "skills": {
+    "frontend": [
+      {
+        "name": "React",
+        "level": "5 - Experto",
+        "description": "Desarrollo de aplicaciones SPA con React, incluyendo hooks, context API y patrones avanzados"
+      },
+      {
+        "name": "React Native",
+        "level": "4 - Avanzado",
+        "description": "Desarrollo de aplicaciones móviles multiplataforma con React Native"
+      },
+      {
+        "name": "JavaScript",
+        "level": "5 - Experto",
+        "description": "ES6+, closures, promesas, async/await, manipulación del DOM y más"
+      },
+      {
+        "name": "TypeScript",
+        "level": "4 - Avanzado",
+        "description": "Tipado estático, interfaces, genéricos y patrones de diseño"
+      },
+      {
+        "name": "CSS Moderno",
+        "level": "5 - Experto",
+        "description": "CSS Grid, Flexbox, animaciones y responsive design"
+      },
+      {
+        "name": "Tailwind CSS",
+        "level": "4 - Avanzado",
+        "description": "Diseño de interfaces modernas y responsivas con utilidades"
+      }
+    ],
+    "backend": [
+      {
+        "name": "Node.js",
+        "level": "4 - Avanzado",
+        "description": "Desarrollo de APIs RESTful, manejo de streams, eventos y más"
+      },
+      {
+        "name": "Express",
+        "level": "4 - Avanzado",
+        "description": "Creación de servidores web y APIs"
+      },
+      {
+        "name": "Expo",
+        "level": "3 - Intermedio",
+        "description": "Desarrollo acelerado de aplicaciones React Native"
+      },
+      {
+        "name": "MongoDB",
+        "level": "4 - Avanzado",
+        "description": "Modelado de datos, agregaciones y optimización de consultas"
+      },
+      {
+        "name": "MySQL",
+        "level": "3 - Intermedio",
+        "description": "Diseño de bases de datos relacionales, consultas SQL complejas"
+      },
+      {
+        "name": "PostgreSQL",
+        "level": "3 - Intermedio",
+        "description": "Diseño de bases de datos relacionales, consultas SQL complejas"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Git",
+        "level": "4 - Avanzado",
+        "description": "Control de versiones, branching strategies, colaboración"
+      },
+      {
+        "name": "Docker",
+        "level": "3 - Intermedio",
+        "description": "Contenedores, Docker Compose, entornos de desarrollo"
+      },
+      {
+        "name": "AWS",
+        "level": "3 - Intermedio",
+        "description": "EC2, S3, RDS, Lambda, CloudFront"
+      },
+      {
+        "name": "Jest",
+        "level": "3 - Intermedio",
+        "description": "Testing de componentes React y funciones JavaScript"
+      },
+      {
+        "name": "Webpack",
+        "level": "3 - Intermedio",
+        "description": "Configuración de bundling, optimización de assets"
+      }
+    ]
+  }
+} 
