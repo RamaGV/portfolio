@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { 
   FiExternalLink, 
-  FiGithub, 
   FiChevronRight, 
   FiChevronLeft, 
   FiX,
