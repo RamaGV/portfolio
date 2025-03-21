@@ -20,10 +20,10 @@ interface Project {
   description: string;
   imageUrl: string;
   tags: string[];
-  demoUrl: string;
-  githubUrl: string;
+  demoUrl?: string;
+  githubUrl?: string;
   featured?: boolean;
-  // Nuevos campos opcionales
+  // Campos opcionales
   longDescription?: string;
   features?: string[];
   role?: string;
@@ -244,7 +244,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                         transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
                         className="group"
                       >
-                        <div className="relative rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                        <div className="relative rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col group">
                           {/* Imagen principal */}
                           <div className="relative aspect-w-16 aspect-h-9 bg-gray-100 dark:bg-gray-800 overflow-hidden">
                             <img 
@@ -260,31 +260,9 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                             {/* Overlay con acciones */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex space-x-3 mb-4">
-                                {project.demoUrl && (
-                                  <a 
-                                    href={project.demoUrl} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="bg-white text-gray-900 p-2 rounded-lg hover:bg-primary-500 hover:text-white transition-colors"
-                                    aria-label="Ver demo"
-                                  >
-                                    <FiExternalLink className="w-5 h-5" />
-                                  </a>
-                                )}
-                                {project.githubUrl && (
-                                  <a 
-                                    href={project.githubUrl} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="bg-white text-gray-900 p-2 rounded-lg hover:bg-primary-500 hover:text-white transition-colors"
-                                    aria-label="Ver código en GitHub"
-                                  >
-                                    <FiGithub className="w-5 h-5" />
-                                  </a>
-                                )}
                                 <button 
                                   onClick={() => openProjectDetails(project, projectIndex)}
-                                  className="bg-white text-gray-900 px-4 py-2 rounded-lg hover:bg-primary-500 hover:text-white transition-colors flex items-center"
+                                  className="bg-white text-gray-900 px-4 py-2 rounded-lg hover:bg-primary-500 hover:text-white transition-colors cursor-pointer flex items-center"
                                   aria-label="Ver detalles"
                                 >
                                   <span className="mr-1">Ver detalles</span>
@@ -302,19 +280,55 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                           
                           {/* Contenido del proyecto */}
                           <div className="p-6 flex-1 flex flex-col">
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
-                            <p className="text-gray-600 dark:text-gray-300 mb-4 flex-1">{project.description}</p>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">{project.title}</h3>
+                            <p className="text-gray-600 dark:text-gray-300 mb-4 flex-1 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">{project.description}</p>
                             
-                            {/* Tecnologías usadas */}
+                            {/* Botones de acción */}
                             <div className="flex flex-wrap gap-2">
-                              {project.tags.map((tag, tagIndex) => (
-                                <span 
-                                  key={tagIndex}
-                                  className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-full"
+                              {project.githubUrl && (
+                                <a 
+                                  href={project.githubUrl} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center w-10 hover:w-24 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
                                 >
-                                  {tag}
-                                </span>
-                              ))}
+                                  <FiCode className="w-4 h-4 transition-colors duration-300 flex-shrink-0" />
+                                  <span className="ml-1.5 transition-all duration-300 opacity-0 group-hover:opacity-100 whitespace-nowrap overflow-hidden">Código</span>
+                                </a>
+                              )}
+                              {project.demoUrl && (
+                                <a 
+                                  href={project.demoUrl} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center w-10 hover:w-20 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
+                                >
+                                  <FiExternalLink className="w-4 h-4 transition-colors duration-300 flex-shrink-0" />
+                                  <span className="ml-1.5 transition-all duration-300 opacity-0 group-hover:opacity-100 whitespace-nowrap overflow-hidden">Demo</span>
+                                </a>
+                              )}
+                              {project.playStoreLink && (
+                                <a 
+                                  href={project.playStoreLink} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center w-10 hover:w-28 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
+                                >
+                                  <FiSmartphone className="w-4 h-4 transition-colors duration-300 flex-shrink-0" />
+                                  <span className="ml-1.5 transition-all duration-300 opacity-0 group-hover:opacity-100 whitespace-nowrap overflow-hidden">Play Store</span>
+                                </a>
+                              )}
+                              {project.documentLink && (
+                                <a 
+                                  href={project.documentLink} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center w-10 hover:w-36 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
+                                >
+                                  <FiDownload className="w-4 h-4 transition-colors duration-300 flex-shrink-0" />
+                                  <span className="ml-1.5 transition-all duration-300 opacity-0 group-hover:opacity-100 whitespace-nowrap overflow-hidden">Documentación</span>
+                                </a>
+                              )}
                             </div>
                           </div>
                         </div>
@@ -342,7 +356,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                         transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
                         className="group"
                       >
-                        <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                        <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col group">
                           {/* Imagen del proyecto */}
                           <div className="relative aspect-w-16 aspect-h-9 bg-gray-100 dark:bg-gray-800 overflow-hidden">
                             <img 
@@ -358,31 +372,9 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                             {/* Overlay con acciones */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex space-x-2">
-                                {project.demoUrl && (
-                                  <a 
-                                    href={project.demoUrl} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="bg-white text-gray-900 p-2 rounded-lg hover:bg-primary-500 hover:text-white transition-colors"
-                                    aria-label="Ver demo"
-                                  >
-                                    <FiExternalLink className="w-4 h-4" />
-                                  </a>
-                                )}
-                                {project.githubUrl && (
-                                  <a 
-                                    href={project.githubUrl} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="bg-white text-gray-900 p-2 rounded-lg hover:bg-primary-500 hover:text-white transition-colors"
-                                    aria-label="Ver código en GitHub"
-                                  >
-                                    <FiGithub className="w-4 h-4" />
-                                  </a>
-                                )}
                                 <button 
                                   onClick={() => openProjectDetails(project, projectIndex)}
-                                  className="bg-white text-gray-900 px-3 py-2 rounded-lg hover:bg-primary-500 hover:text-white transition-colors text-xs flex items-center"
+                                  className="bg-white text-gray-900 px-3 py-2 rounded-lg hover:bg-primary-500 hover:text-white transition-colors text-xs flex items-center cursor-pointer"
                                   aria-label="Ver detalles"
                                 >
                                   <span className="mr-1">Ver detalles</span>
@@ -393,23 +385,54 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                           
                           {/* Contenido del proyecto */}
                           <div className="p-5 flex-1 flex flex-col">
-                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
-                            <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm line-clamp-3 flex-1">{project.description}</p>
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">{project.title}</h3>
+                            <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm line-clamp-3 flex-1 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">{project.description}</p>
                             
-                            {/* Tecnologías limitadas */}
-                            <div className="flex flex-wrap gap-1">
-                              {project.tags.slice(0, 3).map((tag, tagIndex) => (
-                                <span 
-                                  key={tagIndex}
-                                  className="inline-block px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-full"
+                            {/* Botones de acción */}
+                            <div className="flex flex-wrap gap-1.5">
+                              {project.githubUrl && (
+                                <a 
+                                  href={project.githubUrl} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center w-9 hover:w-24 px-2.5 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
                                 >
-                                  {tag}
-                                </span>
-                              ))}
-                              {project.tags.length > 3 && (
-                                <span className="inline-block px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-full">
-                                  +{project.tags.length - 3}
-                                </span>
+                                  <FiCode className="w-3.5 h-3.5 transition-colors duration-300 flex-shrink-0" />
+                                  <span className="ml-1 transition-all duration-300 opacity-0 group-hover:opacity-100 whitespace-nowrap overflow-hidden">Código</span>
+                                </a>
+                              )}
+                              {project.demoUrl && (
+                                <a 
+                                  href={project.demoUrl} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center w-9 hover:w-20 px-2.5 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
+                                >
+                                  <FiExternalLink className="w-3.5 h-3.5 transition-colors duration-300 flex-shrink-0" />
+                                  <span className="ml-1 transition-all duration-300 opacity-0 group-hover:opacity-100 whitespace-nowrap overflow-hidden">Demo</span>
+                                </a>
+                              )}
+                              {project.playStoreLink && (
+                                <a 
+                                  href={project.playStoreLink} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center w-9 hover:w-28 px-2.5 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
+                                >
+                                  <FiSmartphone className="w-3.5 h-3.5 transition-colors duration-300 flex-shrink-0" />
+                                  <span className="ml-1 transition-all duration-300 opacity-0 group-hover:opacity-100 whitespace-nowrap overflow-hidden">Play Store</span>
+                                </a>
+                              )}
+                              {project.documentLink && (
+                                <a 
+                                  href={project.documentLink} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center w-9 hover:w-36 px-2.5 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
+                                >
+                                  <FiDownload className="w-3.5 h-3.5 transition-colors duration-300 flex-shrink-0" />
+                                  <span className="ml-1 transition-all duration-300 opacity-0 group-hover:opacity-100 whitespace-nowrap overflow-hidden">Documentación</span>
+                                </a>
                               )}
                             </div>
                           </div>
@@ -560,28 +583,28 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                     </div>
                   )}
                   
-                  {/* Enlaces */}
-                  <div className="flex flex-wrap gap-4">
-                    {selectedProject.demoUrl && (
-                      <a 
-                        href={selectedProject.demoUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="btn-primary inline-flex items-center px-6 py-3 font-medium text-sm rounded-lg"
-                      >
-                        <FiExternalLink className="mr-2 h-4 w-4" />
-                        <span>Ver Demo</span>
-                      </a>
-                    )}
+                  {/* Enlaces y botones de acción */}
+                  <div className="flex flex-wrap gap-3 mt-6 mb-8">
                     {selectedProject.githubUrl && (
                       <a 
                         href={selectedProject.githubUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="btn-secondary inline-flex items-center px-6 py-3 font-medium text-sm rounded-lg"
+                        className="inline-flex items-center px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                       >
-                        <FiGithub className="mr-2 h-4 w-4" />
-                        <span>Ver Código</span>
+                        <FiCode className="w-5 h-5" />
+                        <span className="ml-2">Ver Código</span>
+                      </a>
+                    )}
+                    {selectedProject.demoUrl && (
+                      <a 
+                        href={selectedProject.demoUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2.5 bg-primary-100 hover:bg-primary-200 dark:bg-primary-900/20 dark:hover:bg-primary-800/30 text-primary-700 dark:text-primary-300 text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+                      >
+                        <FiExternalLink className="w-5 h-5" />
+                        <span className="ml-2">Ver Demo</span>
                       </a>
                     )}
                     {selectedProject.playStoreLink && (
@@ -589,10 +612,10 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                         href={selectedProject.playStoreLink} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="bg-green-600 hover:bg-green-700 text-white inline-flex items-center px-6 py-3 font-medium text-sm rounded-lg transition-colors"
+                        className="inline-flex items-center px-4 py-2.5 bg-green-100 hover:bg-green-200 dark:bg-green-900/20 dark:hover:bg-green-800/30 text-green-700 dark:text-green-300 text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                       >
-                        <FiSmartphone className="mr-2 h-4 w-4" />
-                        <span>Play Store</span>
+                        <FiSmartphone className="w-5 h-5" />
+                        <span className="ml-2">Ver en Play Store</span>
                       </a>
                     )}
                     {selectedProject.documentLink && (
@@ -600,10 +623,10 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                         href={selectedProject.documentLink} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="bg-blue-600 hover:bg-blue-700 text-white inline-flex items-center px-6 py-3 font-medium text-sm rounded-lg transition-colors"
+                        className="inline-flex items-center px-4 py-2.5 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/20 dark:hover:bg-blue-800/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                       >
-                        <FiDownload className="mr-2 h-4 w-4" />
-                        <span>Documentación</span>
+                        <FiDownload className="w-5 h-5" />
+                        <span className="ml-2">Descargar Documentación</span>
                       </a>
                     )}
                   </div>

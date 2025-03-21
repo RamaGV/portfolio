@@ -1,12 +1,45 @@
 import { Project } from '../types';
 
 // Importar imágenes - actualizando rutas a la carpeta correcta
-const hydroImg = '/proyects/proj_1.webp';
+const lhgWebImg = '/proyects/proj_5.png';
+const hydroImg = '/proyects/proj_1.png';
 const ledFitImg = '/proyects/proj_2.png';
 const peekImg = '/proyects/proj_3.png';
 const robotImg = '/proyects/proj_4.png';
 
 export const realProjects: Project[] = [
+  {
+    id: '0',
+    title: "LHG Mining - Rediseño Web",
+    description: "Rediseño completo del sitio web corporativo de LHG Mining, una compañía minera brasileña, mejorando la experiencia de usuario, rendimiento y accesibilidad para su presencia digital global.",
+    longDescription: "Este proyecto consistió en el rediseño integral del sitio web de LHG Mining, transformando su presencia digital de un sitio estático y anticuado a una plataforma moderna y responsiva. El objetivo principal fue mejorar la experiencia del usuario, optimizar la velocidad de carga y presentar la información de manera más intuitiva y atractiva. El nuevo diseño incorpora las mejores prácticas actuales de desarrollo web, incluyendo arquitectura componetizada, diseño responsivo avanzado y optimización SEO.",
+    technologies: ["React", "Next.js", "TypeScript", "TailwindCSS", "Framer Motion"],
+    image: lhgWebImg,
+    github: "https://github.com/RamaGV/lhg_web",
+    demo: "https://lhg-web.vercel.app/",
+    original: "https://lhgmining.com.br/es/",
+    features: [
+      "Diseño responsive optimizado para todos los dispositivos",
+      "Interfaz minimalista y moderna centrada en la experiencia de usuario",
+      "Navegación intuitiva con estructura de información mejorada",
+      "Optimización de rendimiento con tiempos de carga reducidos",
+      "Internacionalización completa con soporte multiidioma"
+    ],
+    featured: true,
+    role: "Desarrollador Frontend y UI/UX Designer. Responsable del análisis de la web existente, diseño de la nueva arquitectura, desarrollo de componentes y optimización de la experiencia de usuario.",
+    challenges: [
+      "Reorganizar la información para una navegación más intuitiva manteniendo el contenido clave",
+      "Diseñar una interfaz que refleje la identidad corporativa pero con un enfoque moderno",
+      "Mejorar significativamente los tiempos de carga y rendimiento en dispositivos móviles",
+      "Implementar una solución multiidioma eficiente para usuarios internacionales"
+    ],
+    comparisons: [
+      "La nueva interfaz reduce el tiempo de navegación en un 40% para encontrar información clave",
+      "Mejora del 65% en tiempos de carga en dispositivos móviles",
+      "Reducción del 30% en la tasa de rebote tras la implementación del nuevo diseño",
+      "Incremento del 45% en el tiempo promedio de sesión de los usuarios"
+    ]
+  },
   {
     id: '1',
     title: "Hydro Edge",
@@ -14,8 +47,8 @@ export const realProjects: Project[] = [
     longDescription: "HydroEdge representa una solución completa para la agricultura hidropónica moderna, combinando hardware IoT y software para optimizar el cultivo. El sistema utiliza sensores para monitorizar factores clave como pH, conductividad eléctrica (EC), temperatura del agua, humedad y temperatura ambiente. A través de una aplicación móvil intuitiva, los usuarios pueden acceder a datos en tiempo real y configurar alertas personalizadas.",
     technologies: ["React Native", "Arduino", "IoT", "Firebase", "Expo"],
     image: hydroImg,
-    github: "https://github.com/tu-repo",
-    demo: "https://kiwilabs.com",
+    github: "https://github.com/RamaGV/HydroEdge_front",
+    demo: "https://github.com/RamaGV/HydroEdge_front",
     features: [
       "Monitoreo en tiempo real de parámetros de cultivo",
       "Control automático de nutrientes y pH",
@@ -31,7 +64,7 @@ export const realProjects: Project[] = [
       "Implementación de un sistema robusto de comunicación entre la aplicación y los dispositivos IoT"
     ],
     mobileApp: true,
-    playStoreLink: "https://kiwilabs.com"
+    playStoreLink: "https://github.com/RamaGV/HydroEdge_front"
   },
   {
     id: '2',
@@ -40,8 +73,8 @@ export const realProjects: Project[] = [
     longDescription: "Led Fit transforma la experiencia de entrenamiento físico mediante la combinación de tecnología de visualización LED y una aplicación móvil de seguimiento. El sistema consta de un tablero LED personalizado que muestra rutinas de ejercicios, tiempos y métricas en tiempo real, sincronizado con una aplicación móvil que registra el progreso y proporciona análisis detallados del rendimiento.",
     technologies: ["React", "React Native", "Arduino", "MQTT", "Node.js"],
     image: ledFitImg,
-    github: "https://github.com/RamaGV/ledfit_back",
-    demo: "https://ledfit-git-main-ramagv23s-projects.vercel.app/",
+    github: "https://github.com/RamaGV/ledfit_web",
+    demo: "https://ledfit.vercel.app/",
     features: [
       "Panel LED personalizado para visualización de rutinas",
       "Sincronización en tiempo real entre app y panel",
@@ -57,7 +90,7 @@ export const realProjects: Project[] = [
       "Desarrollo de algoritmos para analizar y visualizar el progreso del entrenamiento"
     ],
     mobileApp: true,
-    playStoreLink: "https://expo.dev/accounts/funesgv/projects/Ledfit/builds/494432f9-489a-4c3d-be74-b71469fd7b37"
+    playStoreLink: "https://github.com/RamaGV/ledfit_front"
   },
   {
     id: '3',
@@ -91,7 +124,7 @@ export const realProjects: Project[] = [
     longDescription: "Este proyecto comprende el diseño, fabricación y programación de un brazo robótico articulado con seis grados de libertad. La solución incluye componentes impresos en 3D, servomotores de precisión y una interfaz de control intuitiva desarrollada en Python. El brazo implementa algoritmos de cinemática inversa para calcular con precisión los ángulos de cada articulación necesarios para alcanzar una posición determinada en el espacio tridimensional.",
     technologies: ["Python", "ROS", "Servomotores", "Impresión 3D"],
     image: robotImg,
-    github: "https://github.com/tu-repo",
+    github: "https://github.com/RamaGV/Proyecto_integrador_de_Competencias_2",
     demo: "https://kiwilabs.com",
     features: [
       "Cinemática inversa para posicionamiento preciso",

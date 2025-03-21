@@ -7,10 +7,12 @@ export interface Project {
   image: string
   github: string
   demo: string
+  original?: string
   features?: string[]
   featured?: boolean
   role?: string
   challenges?: string[]
+  comparisons?: string[]
   mobileApp?: boolean
   playStoreLink?: string
   documentLink?: string
