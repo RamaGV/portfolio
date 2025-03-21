@@ -11,19 +11,8 @@ import AnimatedCode from '../components/about/AnimatedCode';
 import CallToAction from '../components/about/CallToAction';
 import ProfileCard from '../components/about/ProfileCard';
 
-// Definición de la interfaz para los props
-interface AboutMeSectionProps {
-  personalInfo: {
-    name: string;
-    bio: string;
-    yearsOfExperience: number;
-    completedProjects: number;
-    skillCount: number;
-  };
-}
-
 // Componente principal AboutMeSection
-const AboutMeSection = ({ personalInfo }: AboutMeSectionProps) => {
+const AboutMeSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 

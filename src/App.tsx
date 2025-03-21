@@ -106,9 +106,7 @@ function App() {
         typingText={typingText} 
       />
       
-      <AboutMeSection 
-        personalInfo={personalInfo} 
-      />
+      <AboutMeSection />
       
       <SkillsSection 
         skills={skills}

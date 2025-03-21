@@ -146,7 +146,7 @@ const ExperienceSection = ({ experiences: propExperiences }: ExperienceSectionPr
             >
               {filteredExperiences.map((experience, index) => (
                 <motion.div
-                  key={index}
+                  key={experience.id}
                   initial={{ opacity: 0, y: 50 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                   transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
@@ -173,7 +173,7 @@ const ExperienceSection = ({ experiences: propExperiences }: ExperienceSectionPr
                     
                     {/* Tarjeta de experiencia */}
                     <div className={`md:w-[48%] z-20 ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                      <ExperienceCard experience={experience} isEven={index % 2 === 0} />
+                      <ExperienceCard experience={experience} />
                     </div>
                     
                     {/* Flecha conectora (solo desktop) */}

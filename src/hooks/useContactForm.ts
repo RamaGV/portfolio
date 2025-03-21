@@ -1,7 +1,7 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { z } from 'zod';
 import { debounce } from 'lodash';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 
 // Esquema de validación con Zod
 export const contactFormSchema = z.object({
@@ -21,8 +21,6 @@ type FormErrors = {
 };
 
 interface UseContactFormProps {
-  onSuccess?: () => void;
-  onError?: (error: unknown) => void;
   serviceId?: string;
   templateId?: string;
   userId?: string;
@@ -33,17 +31,15 @@ interface UseContactFormReturn {
   errors: FormErrors;
   isDirty: Record<keyof ContactFormData, boolean>;
   isSubmitting: boolean;
-  submitStatus: 'idle' | 'success' | 'error';
+  submitStatus: 'idle' | 'success' | 'error' | null;
   handleChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   handleBlur: (field: keyof ContactFormData) => void;
-  handleSubmit: (e: FormEvent) => Promise<void>;
+  handleSubmit: (e: FormEvent<Element>) => Promise<void>;
   resetForm: () => void;
   isValid: boolean;
 }
 
 export function useContactForm({ 
-  onSuccess, 
-  onError,
   serviceId = 'default_service',
   templateId = 'template_default',
   userId = 'user_default'
@@ -66,7 +62,7 @@ export function useContactForm({
     consent: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | null>('idle');
   const [isValid, setIsValid] = useState(false);
 
   // Función para validar un campo específico
@@ -158,33 +154,23 @@ export function useContactForm({
   };
 
   // Manejador de envío del formulario
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<Element>) => {
     e.preventDefault();
     
-    // Marcar todos los campos como "sucios" para mostrar todos los errores
-    const allDirty = Object.keys(formData).reduce((acc, key) => {
-      acc[key as keyof ContactFormData] = true;
-      return acc;
-    }, {} as Record<keyof ContactFormData, boolean>);
-    
-    setIsDirty(allDirty);
-    
-    // Validar antes de enviar
-    const isFormValid = validateForm();
-    if (!isFormValid) return;
+    if (!isValid || isSubmitting) return;
     
     setIsSubmitting(true);
-    setSubmitStatus('idle');
+    setSubmitStatus(null);
     
     try {
       // Preparar datos para EmailJS
       const templateParams = {
         from_name: formData.name,
-        reply_to: formData.email,
+        from_email: formData.email,
         subject: formData.subject,
-        message: formData.message
+        message: formData.message,
       };
-      
+
       // Enviar el correo usando EmailJS
       await emailjs.send(
         serviceId,
@@ -192,14 +178,12 @@ export function useContactForm({
         templateParams,
         userId
       );
-      
+
       setSubmitStatus('success');
-      if (onSuccess) onSuccess();
       resetForm();
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error al enviar el mensaje:', error);
       setSubmitStatus('error');
-      if (onError) onError(error);
     } finally {
       setIsSubmitting(false);
     }
