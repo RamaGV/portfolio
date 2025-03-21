@@ -238,8 +238,8 @@ export const ContactSection = () => {
 
             <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
               También puedes contactarme directamente en{' '}
-              <a href="mailto:contacto@ejemplo.com" className="text-primary-600 dark:text-primary-400 hover:underline">
-                contacto@ejemplo.com
+              <a href="mailto:ramagv23@gmail.com" className="text-primary-600 dark:text-primary-400 hover:underline">
+                ramagv23@gmail.com
               </a>
             </div>
           </motion.form>

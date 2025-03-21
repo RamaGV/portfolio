@@ -34,10 +34,26 @@ const Navbar = ({
 
   const handleSetActive = (sectionId: string) => {
     setActiveSection(sectionId);
+    
+    // Cerrar el menú móvil primero
     setIsMenuOpen(false);
     
-    // Scroll to section
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    // Pequeño retraso para asegurar que el DOM se actualice después de cerrar el menú
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        // Calcular la posición con offset para el header fijo
+        const headerOffset = 80; // Altura aproximada del header
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+        
+        // Scroll a la posición calculada
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 150); // Retraso un poco mayor para dispositivos móviles
   };
 
   return (
@@ -142,7 +158,8 @@ const Navbar = ({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-gray-900"
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-white dark:bg-gray-900 shadow-lg"
           >
             <div className="container mx-auto px-4 py-4">
               {/* Navigation Items */}
@@ -150,10 +167,10 @@ const Navbar = ({
                 <motion.button
                   key={item.id}
                   onClick={() => handleSetActive(item.id)}
-                  className={`block w-full py-3 text-sm font-medium transition-colors duration-200 ${
+                  className={`block w-full text-left py-3 px-4 my-1 rounded-lg text-sm font-medium transition-colors duration-200 ${
                     activeSection === item.id
-                      ? 'text-primary-600 dark:text-primary-400'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                      ? 'text-primary-600 dark:text-primary-400 bg-gray-100 dark:bg-gray-800'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800/50'
                   }`}
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
