@@ -1,14 +1,10 @@
 // src/components/about/ProfileCard.tsx
 
-import React from 'react';
 import { motion } from 'framer-motion';
+import { personalInfo } from '../../data/portfolio';
 
-interface ProfileCardProps {
-  name: string;
-  isInView: boolean;
-}
+export const ProfileCard = () => {
 
-const ProfileCard: React.FC<ProfileCardProps> = ({ name, isInView }) => {
   return (
     <div className="relative mb-8">
       <div className="absolute -top-3 -left-3 right-3 bottom-3 border-2 border-primary-400 dark:border-primary-600 rounded-xl z-0"></div>
@@ -17,7 +13,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ name, isInView }) => {
         <div className="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden">
           <img 
             src="/profile.jpg"
-            alt={name}
+            alt={personalInfo.name}
             className="w-full h-full object-cover"
             onError={(e) => {
               const target = e.target as HTMLImageElement;

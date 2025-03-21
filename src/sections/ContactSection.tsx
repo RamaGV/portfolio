@@ -1,4 +1,4 @@
-import { useRef, FormEvent } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FiUser, FiMail, FiMessageSquare, FiSend, FiCheck, FiFileText } from 'react-icons/fi';
 import { FormField } from '../components/ui/FormField';

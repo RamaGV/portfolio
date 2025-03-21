@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { FiCode, FiCheck, FiGithub, FiMail, FiExternalLink } from 'react-icons/fi';
+import { FiCode, FiCheck, FiExternalLink } from 'react-icons/fi';
 
 interface AboutSectionProps {
   personalInfo: {

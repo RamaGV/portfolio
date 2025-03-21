@@ -1,21 +1,5 @@
-import { 
-  FiLayout, 
-  FiServer, 
-  FiDatabase, 
-  FiLayers, 
-  FiPackage, 
-  FiCodepen, 
-  FiGitBranch, 
-  FiSmile, 
-  FiRefreshCw, 
-  FiLink,
-  FiTrello,
-  FiUsers,
-  FiCpu,
-  FiWifi,
-  FiTerminal
-} from 'react-icons/fi';
 import React from 'react';
+import { FiCpu, FiLayout } from 'react-icons/fi';
 
 export interface SkillNode {
   id: string;
@@ -405,13 +389,13 @@ export const skillUseCases: SkillUseCase[] = [
     title: 'Arquitectura Full Stack',
     description: 'Construcción de aplicaciones completas con frontend y backend integrados de forma eficiente.',
     skills: ['react', 'node', 'express', 'mongodb', 'nextjs'],
-    icon: React.createElement(FiLayers, { size: 24 })
+    icon: React.createElement(FiLayout, { size: 24 })
   },
   {
     title: 'Desarrollo para Aplicaciones',
     description: 'Creación de aplicaciones móviles y web con rendimiento optimizado y experiencia de usuario fluida.',
     skills: ['react-native', 'expo', 'typescript', 'redux'],
-    icon: React.createElement(FiPackage, { size: 24 })
+    icon: React.createElement(FiLayout, { size: 24 })
   },
   {
     title: 'Soluciones IoT',

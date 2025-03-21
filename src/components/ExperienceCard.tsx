@@ -13,10 +13,9 @@ import { Experience } from '../types';
 
 interface ExperienceCardProps {
   experience: Experience;
-  isEven: boolean;
 }
 
-export const ExperienceCard = ({ experience, isEven }: ExperienceCardProps) => {
+export const ExperienceCard = ({ experience }: ExperienceCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   // Calcular el período completo

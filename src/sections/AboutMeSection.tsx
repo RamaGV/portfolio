@@ -24,15 +24,13 @@ interface AboutMeSectionProps {
 
 // Componente principal AboutMeSection
 const AboutMeSection = ({ personalInfo }: AboutMeSectionProps) => {
-  const sectionRef = useRef(null);
-  const statsRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
-  const statsInView = useInView(statsRef, { once: false, margin: "-100px" });
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <section 
       id="about" 
-      ref={sectionRef}
+      ref={ref}
       className="py-20 relative bg-white dark:bg-gray-900 overflow-hidden section"
     >
       {/* Elementos flotantes y decoraciones de fondo */}
@@ -55,7 +53,7 @@ const AboutMeSection = ({ personalInfo }: AboutMeSectionProps) => {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <ProfileCard name={personalInfo.name} isInView={isInView} />
+              <ProfileCard />
               <AnimatedCode />
             </motion.div>
           </div>
