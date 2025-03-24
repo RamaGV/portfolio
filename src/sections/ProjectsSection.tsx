@@ -300,7 +300,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                                   href={project.demoUrl} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center justify-center w-10 hover:w-20 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
+                                  className="hidden inline-flex items-center justify-center w-10 hover:w-20 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
                                 >
                                   <FiExternalLink className="w-4 h-4 transition-colors duration-300 flex-shrink-0" />
                                   <span className="ml-1.5 transition-all duration-300 opacity-0 group-hover:opacity-100 whitespace-nowrap overflow-hidden">Demo</span>
@@ -311,7 +311,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                                   href={project.playStoreLink} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center justify-center w-10 hover:w-28 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
+                                  className="hidden inline-flex items-center justify-center w-10 hover:w-28 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
                                 >
                                   <FiSmartphone className="w-4 h-4 transition-colors duration-300 flex-shrink-0" />
                                   <span className="ml-1.5 transition-all duration-300 opacity-0 group-hover:opacity-100 whitespace-nowrap overflow-hidden">Play Store</span>
@@ -405,7 +405,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                                   href={project.demoUrl} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center justify-center w-9 hover:w-20 px-2.5 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
+                                  className="hidden inline-flex items-center justify-center w-9 hover:w-20 px-2.5 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
                                 >
                                   <FiExternalLink className="w-3.5 h-3.5 transition-colors duration-300 flex-shrink-0" />
                                   <span className="ml-1 transition-all duration-300 opacity-0 group-hover:opacity-100 whitespace-nowrap overflow-hidden">Demo</span>
@@ -416,7 +416,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                                   href={project.playStoreLink} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center justify-center w-9 hover:w-28 px-2.5 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
+                                  className="hidden inline-flex items-center justify-center w-9 hover:w-28 px-2.5 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-lg transition-all duration-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 hover:shadow-md hover:-translate-y-0.5 cursor-pointer overflow-hidden"
                                 >
                                   <FiSmartphone className="w-3.5 h-3.5 transition-colors duration-300 flex-shrink-0" />
                                   <span className="ml-1 transition-all duration-300 opacity-0 group-hover:opacity-100 whitespace-nowrap overflow-hidden">Play Store</span>
@@ -600,7 +600,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                         href={selectedProject.demoUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2.5 bg-primary-100 hover:bg-primary-200 dark:bg-primary-900/20 dark:hover:bg-primary-800/30 text-primary-700 dark:text-primary-300 text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+                        className="hidden inline-flex items-center px-4 py-2.5 bg-primary-100 hover:bg-primary-200 dark:bg-primary-900/20 dark:hover:bg-primary-800/30 text-primary-700 dark:text-primary-300 text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                       >
                         <FiExternalLink className="w-5 h-5" />
                         <span className="ml-2">Ver Demo</span>
@@ -611,7 +611,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                         href={selectedProject.playStoreLink} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2.5 bg-green-100 hover:bg-green-200 dark:bg-green-900/20 dark:hover:bg-green-800/30 text-green-700 dark:text-green-300 text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+                        className="hidden inline-flex items-center px-4 py-2.5 bg-green-100 hover:bg-green-200 dark:bg-green-900/20 dark:hover:bg-green-800/30 text-green-700 dark:text-green-300 text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                       >
                         <FiSmartphone className="w-5 h-5" />
                         <span className="ml-2">Ver en Play Store</span>
