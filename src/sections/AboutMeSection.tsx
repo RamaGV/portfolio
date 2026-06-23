@@ -88,12 +88,13 @@ const AboutMeSection = () => {
           </div>
         </div>
         
-        {/* Llamada a la acción */}
+        {/* Llamada a la acción 
         <CallToAction 
           isInView={isInView}
           text="Trabajemos Juntos"
           href="#contact"
         />
+        */}
       </div>
     </section>
   );

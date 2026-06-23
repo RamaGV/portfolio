@@ -20,7 +20,7 @@ const Footer = ({ personalInfo }: FooterProps) => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-gray-600 dark:text-gray-400">
-              &copy; {currentYear} {personalInfo.name}. Todos los derechos reservados.
+              {currentYear} {personalInfo.name}.
             </p>
           </div>
           

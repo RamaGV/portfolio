@@ -122,8 +122,11 @@ function App() {
       <EducationSection 
         education={education} 
       />
-      
+
+      {/*  
+      ACTUALIZO
       <ContactSection />
+      */}
     </Layout>
   );
 }

@@ -29,7 +29,7 @@ const Navbar = ({
     { id: 'projects', label: 'Proyectos' },
     { id: 'experience', label: 'Experiencia' },
     { id: 'education', label: 'Educación' },
-    { id: 'contact', label: 'Contacto' },
+    // { id: 'contact', label: 'Contacto' },
   ];
 
   const handleSetActive = (sectionId: string) => {

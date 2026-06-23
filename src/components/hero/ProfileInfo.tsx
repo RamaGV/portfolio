@@ -28,9 +28,9 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({ name, subtitle, typingText, i
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-2 inline-block"
         >
-          <span className="bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 text-sm font-medium py-1 px-3 rounded-full">
+          {/* <span className="bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 text-sm font-medium py-1 px-3 rounded-full">
             ¡Hola! 👋 Soy
-          </span>
+          </span> */}
         </motion.div>
         
         {/* Componente de nombre */}
@@ -111,7 +111,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({ name, subtitle, typingText, i
           transition={{ duration: 0.6, delay: 0.7 }}
           className="flex flex-wrap gap-4"
         >
-          <a 
+          {/* <a 
             href="#contact" 
             className="
                 btn-primary inline-flex items-center px-6 py-3 
@@ -123,7 +123,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({ name, subtitle, typingText, i
             <svg className="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </a>
+          </a> */}
           
           <a 
             href="#projects" 

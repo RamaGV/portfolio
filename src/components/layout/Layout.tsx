@@ -75,7 +75,7 @@ const Layout = ({ children, personalInfo }: LayoutProps) => {
         isDark={isDark}
         toggleDarkMode={toggleDarkMode}
       />
-      <main className="flex-grow pt-20">
+      <main className="flex-grow pt-20 sm:px-4 lg:px-8">
         {children}
       </main>
       <Footer personalInfo={personalInfo} />
