@@ -8,7 +8,6 @@ import FloatingElements from '../components/about/FloatingElements';
 import SectionHeader from '../components/about/SectionHeader';
 import RevealSection from '../components/about/RevealSection';
 import AnimatedCode from '../components/about/AnimatedCode';
-import CallToAction from '../components/about/CallToAction';
 import ProfileCard from '../components/about/ProfileCard';
 
 // Componente principal AboutMeSection
@@ -87,14 +86,6 @@ const AboutMeSection = () => {
             </RevealSection>
           </div>
         </div>
-        
-        {/* Llamada a la acción 
-        <CallToAction 
-          isInView={isInView}
-          text="Trabajemos Juntos"
-          href="#contact"
-        />
-        */}
       </div>
     </section>
   );

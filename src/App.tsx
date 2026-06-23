@@ -8,7 +8,6 @@ import SkillsSection from './sections/SkillsSection';
 import ProjectsSection from './sections/ProjectsSection';
 import ExperienceSection from './sections/ExperienceSection';
 import EducationSection from './sections/EducationSection';
-import { ContactSection } from './sections/ContactSection';
 import './App.css';
 import portfolio from './data/portfolio.json';
 import { skills, skillUseCases } from './data/skillsData';
@@ -122,11 +121,6 @@ function App() {
       <EducationSection 
         education={education} 
       />
-
-      {/*  
-      ACTUALIZO
-      <ContactSection />
-      */}
     </Layout>
   );
 }
